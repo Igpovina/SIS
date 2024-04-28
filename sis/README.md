@@ -1,0 +1,1 @@
+To use you'll need to install the latest versions of python and django pip install django should do it. If that doesn't work you'll need to install python https://www.python.org/downloads/ run the command again. After that in the sis directory run python manage.py runserver for any questions please text me.
