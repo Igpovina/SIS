@@ -12,12 +12,16 @@ class Course(models.Model):
     classes = models.ManyToManyField(Classes)
 
 
-class Student(AbstractUser):
-    student_classes = models.ManyToManyField(Course, blank=True, null=True)
+class User(AbstractUser):
+    is_student = models.BooleanField('is_student', default=False)
+    is_faculty = models.BooleanField('is_faculty', default=False)
+    def student(self):
+        if self.is_student:
+            student_classes = models.ManyToManyField(Course, blank=True, null=True)
     sex = models.CharField(max_length=20, blank=False, default='None')
 
 class Profile(models.Model):
-    student = models.OneToOneField(Student, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     profile_picture = models.ImageField(null=True, blank=True, upload_to = 'media/', default='default_profile_picture.jpg')
 

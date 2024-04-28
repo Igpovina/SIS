@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'studentIS',
+    'django_extensions',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -137,4 +139,4 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'DashboardApp.index'
 LOGOUT_REDIRECT_URL = 'home'
 
-AUTH_USER_MODEL = 'studentIS.Student'
+AUTH_USER_MODEL = 'studentIS.User'

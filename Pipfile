@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
+django-extensions = "*"
+django-widget-tweaks = "==0.2.1"
 
 [dev-packages]
 
