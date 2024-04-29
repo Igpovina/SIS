@@ -8,14 +8,16 @@
 
 </head>
 <body>
-    {{users}}
-    Is the user a student?
-    {{user.is_student}}
     <h1>Welcome</h1>
     <h2>LOGIN</h2>
-    <div>Username</div>
-    <div>Password</div>
-    <button>SIGN IN</button>
+    <form method="POST" action="{% url 'login' %}" autocomplete="off">
+        {% csrf_token %}
+        <div>Username</div>
+        {{my_form.username}}
+        <div>Password</div>
+        {{my_form.password}}
+        <button>SIGN IN</button>
+    </form>
     <hr>
     <div>Forgot Password?</div>
     <div class="bottomHeader">New York Fashion Academy © 2024</div></body>

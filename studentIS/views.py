@@ -10,10 +10,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 
+from django.contrib.auth import login, get_user_model, authenticate
+
 from .models import User, Course, Classes
 from .forms import RegisterForm
 
 
+# Create your views here.
 def login_user(request):
     if request.method == 'POST':
         my_form = AuthenticationForm(request, data=request.POST)
@@ -27,17 +30,19 @@ def login_user(request):
             if user_auth:
                 login(request, user_auth)
                 response = f'Welcome Dr. {user}'
-                return redirect('index')
+                return redirect('login')
             else:
                 response = 'User name or password are invalid'
-                return render(request, 'login.html', {'response':response, 'my_form':my_form})
+                return render(request, 'index.html', {'response':response, 'my_form':my_form})
             
         response = 'User name or password are invalid'
-        return render(request, 'login.html', {'response':response, 'my_form':my_form})
+        return render(request, 'index.html', {'response':response, 'my_form':my_form})
     else:
         my_form = AuthenticationForm()
-        return render(request, 'login.html', {'my_form':my_form})
-# Create your views here.
+        return render(request, 'index.html', {'my_form':my_form})
+
+
+
 class RegisterView(FormView):
     form_class = RegisterForm
     template_name = 'register.html'
