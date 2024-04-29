@@ -10,14 +10,25 @@
 <body>
     <h1>Welcome</h1>
     <h2>LOGIN</h2>
-    <form method="POST" action="{% url 'login' %}" autocomplete="off">
-        {% csrf_token %}
-        <div>Username</div>
-        {{my_form.username}}
-        <div>Password</div>
-        {{my_form.password}}
-        <button>SIGN IN</button>
-    </form>
+    {% if not user.is_authenticated %}
+        <form method="POST" action="{% url 'login' %}" autocomplete="off">
+            
+            {% csrf_token %}
+            <div>Username</div>
+            {{my_form.username}}
+            <div>Password</div>
+            {{my_form.password}}
+            <button>SIGN IN</button>
+
+        </form>
+    {% else %}
+        
+        Hello {user.name}
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% endif %}
     <hr>
     <div>Forgot Password?</div>
     <div class="bottomHeader">New York Fashion Academy © 2024</div></body>

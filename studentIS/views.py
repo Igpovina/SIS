@@ -42,7 +42,6 @@ def login_user(request):
         return render(request, 'index.html', {'my_form':my_form})
 
 
-
 class RegisterView(FormView):
     form_class = RegisterForm
     template_name = 'register.html'
