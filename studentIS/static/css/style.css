@@ -1,3 +1,11 @@
-div{
-    flex: auto;
+body{
+    background-color:#1A355B;
+}
+.container{
+    background-color: antiquewhite;
+    text-align: center;
+	font-size: 24px;
+	font-family: monospace;
+	margin:20% 25% 10% 25%;
+	padding: 3%;
 }
