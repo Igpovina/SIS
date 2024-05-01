@@ -39,3 +39,12 @@ body{
 	overflow: hidden;
 	
 }
+
+.regForm{
+	background-color: rgb(225, 212, 212);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:19% 35% 10% 35%;
+	padding: 2%;
+	opacity: 0.75;
+}

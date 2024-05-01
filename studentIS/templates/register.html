@@ -1,14 +1,100 @@
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
-    <title>Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<link rel="stylesheet" href="{% static 'css\style.css' %}" type="text/css">
+
 </head>
-<body>
-    <form action="{% url 'register'%}" method="POST">
-       
-    </form>
+<body class="regBody">
+
+<h1>Student Registration Form</h1>
+<form  action="submit.php" method="post">
+    
+    <h2>Student Information</h2>
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br><br>
+
+    <label for="middle_initial">Middle Initial:</label><br>
+    <input type="text" id="middle_initial" name="middle_initial" maxlength="1"><br><br>
+
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br><br>
+
+    <label for="date_of_birth">Date of Birth:</label><br>
+    <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Non-Binary">Non-Binary</option>
+        <option value="Other">Other</option>
+    </select><br><br>
+
+    <label for="social_security">Social Security Number (Last 4 Digits):</label><br>
+        <div>XX - XXX - </div>
+<input type="text" id="ssn1" name="ssn1" maxlength="1" pattern="[0-9]" required>- 
+    <input type="text" id="ssn2" name="ssn2" maxlength="1" pattern="[0-9]" required>-
+    <input type="text" id="ssn3" name="ssn3" maxlength="1" pattern="[0-9]" required>-
+    <input type="text" id="ssn4" name="ssn4" maxlength="1" pattern="[0-9]" required><br><br>
+
+<hr>
+<h2>Address</h2>
+<label for="street">Street:</label><br>
+<input type="text" id="street" name="street" required><br><br>
+
+<label for="city">City:</label><br>
+<input type="text" id="city" name="city" required><br><br>
+
+<label for="state">State:</label><br>
+<input type="text" id="state" name="state" required><br><br>
+
+<label for="area_code">Zip Code:</label><br>
+<input type="text" id="area_code" name="area_code" required><br><br>
+
+<label for="country">Country/Province:</label><br>
+<input type="text" id="country" name="country" required><br><br>
+
+<hr>
+
+<h2>Contact Information</h2>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number (with Country Code):</label><br>
+    <input type="tel" id="phone" name="phone" required placeholder="+1234567890"><br><br>
+
+ 
+    <hr>
+
+
+    <label for="program">Interested Program:</label><br>
+    <select id="program" name="program" required>
+        <option value="">Select Program</option>
+        <option value="Fashion Design Foundation">Fashion Design Foundation</option>
+        <option value="Fashion Design Certificate">Fashion Design Certificate</option>
+        <option value="Fashion Design Professional">Fashion Design Professional</option>
+    </select><br><br>
+
+    <label for="semester">Start Date:</label><br>
+    <select id="semester" name="semester" required>
+        <option value="">Select Semester</option>
+        <option value="Fall">Fall</option>
+        <option value="Spring">Spring</option>
+        <option value="Winter">Winter</option>
+        <option value="Summer">Summer</option>
+    </select><br><br>
+
+    <label for="hear_about">How did you hear about us?</label><br>
+    <input type="text" id="hear_about" name="hear_about" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
