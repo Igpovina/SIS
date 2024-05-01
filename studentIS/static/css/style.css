@@ -1,11 +1,41 @@
 body{
-    background-color:#1A355B;
-}
+	width: 100%;
+	height: 100%;
+	background: url(/media/New\ York\ Fashion\ Academy.png) no-repeat center center fixed; 
+	background-color: #101010;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  }
+
 .container{
-    background-color: antiquewhite;
-    text-align: center;
-	font-size: 24px;
-	font-family: monospace;
-	margin:20% 25% 10% 25%;
-	padding: 3%;
+    background-color: rgb(225, 212, 212);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:19% 35% 10% 35%;
+	padding: 2%;
+	opacity: 0.75;
+
+}
+.unFont,.pwFont{
+	text-align: ;
+	font-size: small;
+	padding: 6px;
+}
+.bottomfooter{
+	background-color: black;
+	color: aliceblue;
+	text-align: center;
+	position: fixed;
+	bottom: 0%;	
+	left: 0%;
+	width:100%;
+	padding: 5px;
+	box-shadow: 3px;
+}
+.topNav{
+	background-color:black;
+	overflow: hidden;
+	
 }
