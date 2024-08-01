@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'studentIS',
     'django_extensions',
     'widget_tweaks',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

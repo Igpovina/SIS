@@ -22,8 +22,10 @@
                 <div class="pwFont">Password</div>
                 {{my_form.password}}
                 <br><br><button>SIGN IN</button>
-
+                
             </form>
+            <a href="{% url 'register' %}"><button>REGISTER</button></a>
+
         {% else %}
             
             Hello {user.name}

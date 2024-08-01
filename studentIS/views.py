@@ -8,12 +8,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView, UpdateView, DeleteView
+from django.views.generic.edit import FormView, UpdateView, DeleteView, View
 
 from django.contrib.auth import login, get_user_model, authenticate
 
 from .models import User, Course, Classes
-from .forms import RegisterForm
+from .forms import RegisterForm, StudentForm, AddressForm
 
 
 # Create your views here.
@@ -41,15 +41,26 @@ def login_user(request):
         my_form = AuthenticationForm()
         return render(request, 'index.html', {'my_form':my_form})
 
+def student_register(request):
+    if request.method == 'POST':
+        student_form = StudentForm(request.POST)
+        address_form = AddressForm(request.POST)
+        if student_form.is_valid() and address_form.is_valid():
+            # Process student_form and address_form data
+            # For example, save to database
+            student_form.save()
+            address_form.save()
+            return redirect('success-url')  # Replace with your success URL name or path
+    else:
+        student_form = StudentForm()
+        address_form = AddressForm()
 
-class RegisterView(FormView):
-    form_class = RegisterForm
-    template_name = 'register.html'
-    success_url = reverse_lazy('home')
+    context = {
+        'student_form': student_form,
+        'address_form': address_form,
+    }
+    return render(request, 'register.html', context)
 
-    def form_valid(self, form):
-        form.save()  # save the user
-        return super().form_valid(form)
 
 class StudentView(ListView):
     model = User

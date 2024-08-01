@@ -1,4 +1,6 @@
 {% load widget_tweaks %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,36 +14,44 @@
 <body class="regBody">
 
 <h1>Student Registration Form</h1>
-<form  action="submit.php" method="post">
+<form  action="{% url 'register' %}" method="post">{% csrf_token %}
     
     <h2>Student Information</h2>
     <label for="first_name">First Name:</label><br>
-    <input type="text" id="first_name" name="first_name" required><br><br>
+    <div>{{ student_form.first_name.errors }}
+        {% render_field student_form.first_name %}
+    </div></div><br><br>
 
     <label for="middle_initial">Middle Initial:</label><br>
-    <input type="text" id="middle_initial" name="middle_initial" maxlength="1"><br><br>
+    <div>
+        {{student_form.middle_initial.errors}}
+        {% render_field student_form.middle_initial %}
+    </div><br><br>
 
     <label for="last_name">Last Name:</label><br>
-    <input type="text" id="last_name" name="last_name" required><br><br>
+    <div>
+        {{student_form.last_name.errors}}
+        {% render_field student_form.last_name %}
+    </div><br><br>
 
     <label for="date_of_birth">Date of Birth:</label><br>
-    <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+    <div>
+        {{student_form.date_of_birth.errors}}
+        {% render_field student_form.date_of_birth %} 
+    </div><br><br>
 
     <label for="gender">Gender:</label><br>
-    <select id="gender" name="gender" required>
-        <option value="">Select Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Non-Binary">Non-Binary</option>
-        <option value="Other">Other</option>
-    </select><br><br>
+    <div>
+        {{student_form.sex.errors}}
+        {% render_field student_form.sex %}
+    </div><br><br>
 
     <label for="social_security">Social Security Number (Last 4 Digits):</label><br>
         <div>XX - XXX - </div>
-<input type="text" id="ssn1" name="ssn1" maxlength="1" pattern="[0-9]" required>- 
-    <input type="text" id="ssn2" name="ssn2" maxlength="1" pattern="[0-9]" required>-
-    <input type="text" id="ssn3" name="ssn3" maxlength="1" pattern="[0-9]" required>-
-    <input type="text" id="ssn4" name="ssn4" maxlength="1" pattern="[0-9]" required><br><br>
+    <div>
+        {{student_form.SSN.errors}}
+        {% render_field student_form.SSN %}
+    </div><br><br>
 
 <hr>
 <h2>Address</h2>
