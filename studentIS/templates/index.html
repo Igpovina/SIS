@@ -24,15 +24,16 @@
                 <br><br><button>SIGN IN</button>
                 
             </form>
-            <a href="{% url 'register' %}"><button>REGISTER</button></a>
+            
 
         {% else %}
             
-            Hello {user.name}
+            Hello {{user.name}}
             <form action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
+            <a href="{% url 'register' %}"><button>REGISTER</button></a>
             
         {% endif %}
         <br>

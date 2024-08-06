@@ -56,50 +56,58 @@
 <hr>
 <h2>Address</h2>
 <label for="street">Street:</label><br>
-<input type="text" id="street" name="street" required><br><br>
+<div>
+    {{address_form.street.errors}}
+    {% render_field address_form.street %}
+</div><br><br>
 
 <label for="city">City:</label><br>
-<input type="text" id="city" name="city" required><br><br>
+<div>
+    {{address_form.city.errors}}
+    {% render_field address_form.city %}
+</div></div><br><br>
 
 <label for="state">State:</label><br>
-<input type="text" id="state" name="state" required><br><br>
+<div>
+    {{address_form.state.errors}}
+    {% render_field address_form.state %}
+</div><br><br><br><br>
 
 <label for="area_code">Zip Code:</label><br>
-<input type="text" id="area_code" name="area_code" required><br><br>
+<div>
+    {{address_form.zip_code.errors}}
+    {% render_field address_form.zip_code %}
+</div><br><br><br><br>
 
 <label for="country">Country/Province:</label><br>
-<input type="text" id="country" name="country" required><br><br>
+<div>
+    {{address_form.country.errors}}
+    {% render_field address_form.country %}
+</div><br><br><br><br>
 
 <hr>
 
 <h2>Contact Information</h2>
 
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <div>
+        {{student_form.email.errors}}
+        {% render_field student_form.email %}
+    </div><br><br>
 
     <label for="phone">Phone Number (with Country Code):</label><br>
-    <input type="tel" id="phone" name="phone" required placeholder="+1234567890"><br><br>
-
+    <div>
+        {{student_form.phone_number.errors}}
+        {% render_field student_form.phone_number %}
+    </div><br><br>
  
     <hr>
 
-
     <label for="program">Interested Program:</label><br>
-    <select id="program" name="program" required>
-        <option value="">Select Program</option>
-        <option value="Fashion Design Foundation">Fashion Design Foundation</option>
-        <option value="Fashion Design Certificate">Fashion Design Certificate</option>
-        <option value="Fashion Design Professional">Fashion Design Professional</option>
-    </select><br><br>
-
-    <label for="semester">Start Date:</label><br>
-    <select id="semester" name="semester" required>
-        <option value="">Select Semester</option>
-        <option value="Fall">Fall</option>
-        <option value="Spring">Spring</option>
-        <option value="Winter">Winter</option>
-        <option value="Summer">Summer</option>
-    </select><br><br>
+    <div>
+        {{student_form.program.errors}}
+        {% render_field student_form.program %}
+    </div><br><br>
 
     <label for="hear_about">How did you hear about us?</label><br>
     <input type="text" id="hear_about" name="hear_about" required><br><br>

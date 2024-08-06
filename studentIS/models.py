@@ -62,15 +62,30 @@ STATES = {
     'WY': 'Wyoming'
 }
 
+START_DATE = {
+    "Spring":"Spring",
+    "Fall":"Fall",
+    "Summer":"Summer",
+    "Winter":"Winter"
+}
+
+
 # Create your models here.
 class Classes(models.Model):
     subject = models.CharField(max_length=30, blank=True, null=True)
     schedule_start = models.DateTimeField()
     schedule_end = models.DateTimeField()
     class_duration = models.CharField(max_length=25, default="90 minutes")
+    def __str__(self):
+        return f"{self.subject}"
 
 class Course(models.Model):
+    name = models.CharField(max_length=25, default='Program')
     classes = models.ManyToManyField(Classes)
+    start_date = models.CharField(max_length=7, choices=START_DATE)
+
+    def __str__(self):
+        return f"{self.name}"
 
 class Address(models.Model):
     street = models.CharField(max_length=30)
@@ -90,7 +105,7 @@ class Student(models.Model):
     email = models.EmailField(max_length=25, unique=True)
     phone_number = PhoneField(blank=True)
     program = models.OneToOneField(Course, blank=True, null=True, on_delete=models.CASCADE, related_name='course')
-    start_date = models.DateTimeField(max_length=8)
+    start_date = models.CharField(max_length=8)
     reference = models.CharField(max_length=20, blank=True, null=True)
 
 
