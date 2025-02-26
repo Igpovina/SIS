@@ -48,16 +48,13 @@ def student_register(request):
         if student_form.is_valid() and address_form.is_valid():
             # Save the address form first
             address = address_form.save()
-            print(f"Address saved: {address}")
             # Set the address to the student form
             student = student_form.save(commit=False)
             student.address = address
             program = student_form.cleaned_data['program']
-            print(f'este es el programa: {program}')
             program = Course.objects.get(name = program)
             student.start_date = program.start_date
             student.save()
-            print(f"Student saved: {student}")
             return redirect('login')  # Replace with your success URL name or path
     else:
         student_form = StudentForm()

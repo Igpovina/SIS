@@ -21,6 +21,7 @@ class StudentForm(forms.ModelForm):
             'sex':'sex',
             'SSN':'SSN',
             'program':'program',
+            
 
         }
         widgets = {
@@ -40,6 +41,6 @@ class AddressForm(forms.ModelForm):
         model = Address
         fields = '__all__'
         widgets = {
-            'state':forms.Select(choices=STATES)
+            'state':forms.Select(choices=STATES, attrs={'placeholder':'--------'})
         }
 

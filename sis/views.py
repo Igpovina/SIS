@@ -1,6 +1,9 @@
-# Imports
+from rest_framework import viewsets, permissions
+from rest_framework.response import Response
 from django.shortcuts import redirect
-# views
 
 def home(request):
-        return redirect('home/')
+    """
+    Redirects to home page
+    """
+    return redirect('home/')
